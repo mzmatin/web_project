@@ -9,8 +9,8 @@ import Typography from '@material-ui/core/Typography';
 const styles = {
     bigAvatar: {
         margin: 10,
-        width: 60,
-        height: 60,
+        width: 170,
+        height: 170,
     },
     avatarWrapper : {
         display : 'flex',
@@ -19,13 +19,13 @@ const styles = {
     }
 };
 
-function ImageAvatars(props) {
+function PlayerAvatar(props) {
     const { classes } = props;
     return (
         <Grid container justify="center" alignItems="center">
             <div className={classes.avatarWrapper}>
                 <Avatar alt={props.name} src={props.avatar} className={classes.bigAvatar} />
-                <Typography variant="subtitle2" gutterBottom>
+                <Typography variant="h3" gutterBottom>
                     {props.name}
                 </Typography>
             </div>
@@ -33,8 +33,8 @@ function ImageAvatars(props) {
     );
 }
 
-ImageAvatars.propTypes = {
+PlayerAvatar.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ImageAvatars);
+export default withStyles(styles)(PlayerAvatar);

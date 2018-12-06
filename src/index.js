@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import Container from "./components/Container";
 
 ReactDOM.render(<Container />, document.getElementById('root'));
+// ReactDOM.render(<PlayerPage />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

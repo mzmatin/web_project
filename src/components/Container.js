@@ -1,7 +1,7 @@
 import React from 'react';
 import AppNavBar from "./AppNavBar";
-import MainPage from "./pages/mainPage/MainPage";
 import RTL from "./utils/RTL";
+import PlayerPage from "./pages/playerPage/PlayerPage";
 
 
 class Container extends React.Component{
@@ -9,7 +9,7 @@ class Container extends React.Component{
         return (
             <RTL>
                 <AppNavBar />
-                <MainPage />
+                <PlayerPage />
             </RTL>
         );
     }
