@@ -3,7 +3,7 @@ import {withStyles} from "@material-ui/core";
 import PropTypes from "prop-types";
 import 'typeface-roboto';
 import Typography from '@material-ui/core/Typography';
-import ImageAvatars from "../../utils/ImageAvatars";
+import ImageAvatars from "../../../ImageAvatars";
 
 const styles = theme => ({
    matchComponent : {

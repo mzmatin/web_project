@@ -211,7 +211,7 @@ class AppNavBar extends React.Component {
                         <div className={classes.grow} />
                         <div className={classes.sectionDesktop}>
                             <IconButton
-                                style={!open ? {marginRight: 24} : {}}
+                                style={!open ? {marginLeft: 24} : {}}
                                 aria-owns={isMenuOpen ? 'material-appbar' : undefined}
                                 aria-haspopup="true"
                                 onClick={this.handleProfileMenuOpen}

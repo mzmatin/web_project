@@ -1,6 +1,6 @@
 import React from 'react';
 import MatchComponentChild from "./MatchComponentChild";
-import PaperSheet from "../../utils/PaperSheet";
+import PaperSheet from "../../../PaperSheet";
 import Paper from "@material-ui/core/Paper/Paper";
 
 

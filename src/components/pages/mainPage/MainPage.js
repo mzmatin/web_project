@@ -2,7 +2,7 @@ import React from 'react';
 import MainPageNews from "./news/MainPageNews";
 import MainPageMatches from "./matches/MainPageMatches";
 import {withStyles} from "@material-ui/core";
-import RTL from "../utils/RTL";
+import RTL from "../../utils/RTL";
 
 const styles = theme => ({
     mainPageContainer : {
