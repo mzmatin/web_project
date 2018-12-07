@@ -29,7 +29,6 @@ function RTL2(props) {
 }
 class RTL extends React.Component{
     render() {
-
         return (
             <RTL2>
                 <MuiThemeProvider theme={theme}>

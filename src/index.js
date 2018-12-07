@@ -2,10 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import Container from "./components/Container";
+import RecipeReviewCard from "./components/NewsHeader";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEye, faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import ExpandExample from "./components/ExpandExample";
+import ImageAvatars from "./components/utils/ImageAvatars";
 
-ReactDOM.render(<Container />, document.getElementById('root'));
-// ReactDOM.render(<PlayerPage />, document.getElementById('root'));
+library.add(faEye, faThumbsDown, faThumbsUp);
+
+// ReactDOM.render(<RecipeReviewCard disLikeCount = {35}/>, document.getElementById('root'));
+ReactDOM.render(<ImageAvatars size = {100} name = {'Matin'}/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
