@@ -43,7 +43,7 @@ class PlayerPage extends React.Component {
             <div className={classes.playerPageContainer}>
                 <div className={classes.rowContainer}>
                     <div>
-                        <PlayerAvatar name={name} avatar={address}/>
+                        <PlayerAvatar text={name} avatar={address}/>
                     </div>
                     <div>
                         <PlayerTable information={information}/>

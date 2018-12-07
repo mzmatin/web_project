@@ -1,17 +1,15 @@
 import React from 'react';
 import AppNavBar from "./AppNavBar";
 import RTL from "./utils/RTL";
-import LeagueMainPage from "./pages/LeaguePage/LeagueMainPage";
 import {withStyles} from "@material-ui/core";
-import PlayerPage from "./pages/playerPage/PlayerPage";
-import PlayerAvatar from "./pages/playerPage/PlayerAvatar";
+import Ranking from "./pages/LeaguePage/Ranking";
+import LeagueMainPage from "./pages/LeaguePage/LeagueMainPage";
+import MainPage from "./pages/mainPage/MainPage";
 
 const styles = theme => ({
     appContainer : {
-        display: 'flex',
-        flexDirection: 'column',
-        maxWidth : '85vw',
-        margin: theme.unit * 10,
+        maxWidth : '100vw',
+        marginTop: '80px',
     }
 });
 
@@ -20,9 +18,9 @@ class Container extends React.Component{
         const { classes} = this.props;
         return (
             <RTL>
+                <AppNavBar />
                 <div className={classes.appContainer}>
-                    <AppNavBar />
-                    <PlayerPage />
+                    <MainPage />
                 </div>
             </RTL>
         );
