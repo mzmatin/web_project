@@ -57,7 +57,7 @@ const styles = theme => ({
     grow: {
         flexGrow: 1,
     },
-    search: {
+    searchLeague: {
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
         backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -196,7 +196,7 @@ class AppNavBar extends React.Component {
                             <MenuIcon />
                         </IconButton>
                         <img className={classes.logo} alt="logo" src={logo}/>
-                        <div className={classes.search}>
+                        <div className={classes.searchLeague}>
                             <div className={classes.searchIcon}>
                                 <SearchIcon />
                             </div>

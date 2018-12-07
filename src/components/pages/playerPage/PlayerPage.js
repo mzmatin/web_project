@@ -11,7 +11,8 @@ const styles = ({
         display : 'flex',
         flexDirection : 'column',
         justifyContent : 'space-around',
-        height : '100vh',
+        height : '85vh',
+        marginTop: '100px',
     },
     rowContainer : {
         display: 'flex',

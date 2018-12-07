@@ -11,7 +11,8 @@ const styles = theme => ({
         justifyContent : 'space-evenly',
         alignItems : 'center',
         alignContent : 'center',
-        height : '100vh',
+        height : '85vh',
+        marginTop: '100px',
     },
 });
 

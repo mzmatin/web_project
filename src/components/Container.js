@@ -1,18 +1,28 @@
 import React from 'react';
 import AppNavBar from "./AppNavBar";
 import RTL from "./utils/RTL";
-import PlayerPage from "./pages/playerPage/PlayerPage";
+import LeagueMainPage from "./pages/LeaguePage/LeagueMainPage";
+import {withStyles} from "@material-ui/core";
 
+const styles = ({
+    appContainer : {
+        display: 'flex',
+        flexDirection: 'column',
+    }
+});
 
 class Container extends React.Component{
     render() {
+        const { classes} = this.props;
         return (
             <RTL>
-                <AppNavBar />
-                <PlayerPage />
+                <div className={classes.appContainer}>
+                    <AppNavBar />
+                    <LeagueMainPage />
+                </div>
             </RTL>
         );
     }
 }
 
-export default Container;
+export default withStyles(styles, { withTheme: true })(Container);
