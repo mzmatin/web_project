@@ -13,7 +13,7 @@ import {
 // Configure JSS
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
-// Custom Material-UI class name generator.
+// Custom Material-UI class text generator.
 const generateClassName = createGenerateClassName();
 
 const theme = createMuiTheme({

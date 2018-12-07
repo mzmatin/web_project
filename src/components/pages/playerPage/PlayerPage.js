@@ -5,6 +5,7 @@ import PlayerAvatar from "./PlayerAvatar";
 import PlayerTable from "./PlayerInfTable";
 import PlayerStatTable from "./PlayerStatTable";
 import SimpleSelect from "../../SimpleSelect";
+import Grid from "../../Grid";
 
 const styles = ({
     playerPageContainer : {
@@ -36,6 +37,7 @@ class PlayerPage extends React.Component {
         const name = this.getPlayerName(this.props.playerCode);
         const address = this.getAddress(this.props.playerCode);
         const stat = this.getStat(1);
+        const newsList = this.getNews(this.props.playerCode);
         return (
 
             <div className={classes.playerPageContainer}>
@@ -57,7 +59,7 @@ class PlayerPage extends React.Component {
                         <PlayerStatTable information={stat}/>
                     </div>
                     <div>
-                        related
+                        <Grid listItems={newsList} listTitle={"اخبار مرتبط"} width={400} columns={2}/>
                     </div>
                 </div>
             </div>
@@ -130,6 +132,35 @@ class PlayerPage extends React.Component {
                 }
             }
         }
+    }
+
+    getNews(playerCode) {
+        return [
+            {"text": "پله: مارادونا همه چیز داشت، مسی نه ",
+                "address": "https://static.farakav.com/files/pictures/thumb/01360957.jpg",
+                "subtitle" : "۱۳۹۷/۰۹/۱۵"
+            },
+            {"text": "والورده: مصدومیت مسی جدی نیست",
+                "address": "https://static.farakav.com/files/pictures/thumb/01354229.jpg",
+                "subtitle" : "۱۳۹۷/۰۹/۱۱"
+            },
+            {"text": "مسی چند کلاس بالاتر از مودریچ است ",
+                "address": "https://static.farakav.com/files/pictures/thumb/01360776.jpg",
+                "subtitle" : "۱۳۹۷/۰۹/۱۴"
+            },
+            {"text": "پله: مارادونا همه چیز داشت، مسی نه ",
+                "address": "https://static.farakav.com/files/pictures/thumb/01360957.jpg",
+                "subtitle" : "۱۳۹۷/۰۹/۱۵"
+            },
+            {"text": "والورده: مصدومیت مسی جدی نیست",
+                "address": "https://static.farakav.com/files/pictures/thumb/01354229.jpg",
+                "subtitle" : "۱۳۹۷/۰۹/۱۱"
+            },
+            {"text": "مسی چند کلاس بالاتر از مودریچ است ",
+                "address": "https://static.farakav.com/files/pictures/thumb/01360776.jpg",
+                "subtitle" : "۱۳۹۷/۰۹/۱۴"
+            },
+        ];
     }
 }
 

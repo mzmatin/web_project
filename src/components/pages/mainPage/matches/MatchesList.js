@@ -15,7 +15,7 @@ class MatchesList extends React.Component {
                     address1={this.props.matches[i]["address1"]} name1={this.props.matches[i]["name1"]}
                     address2={this.props.matches[i]["address2"]} name2={this.props.matches[i]["name2"]}
                     result={this.props.matches[i]["result"]}
-                    date={this.props.matches[i]["date"]}
+                    date={this.props.matches[i]["subtitle"]}
                 />} />
             );
         }

@@ -71,19 +71,19 @@ class MainPageMatches extends React.Component {
                     "type": "فوتبال",
                     "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
                     "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
-                    "result": "۲-۲", "date" : "دیروز : ۲۱:۰۰ "
+                    "result": "۲-۲", "subtitle" : "دیروز : ۲۱:۰۰ "
                 },
                 {
                     "type": "فوتبال",
                     "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
                     "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
-                    "result": " - ", "date" : "امروز: ۲۱:۰۰ "
+                    "result": " - ", "subtitle" : "امروز: ۲۱:۰۰ "
                 },
                 {
                     "type": "بسکتبال",
                     "address1": 'https://a.espncdn.com/i/teamlogos/nba/500/gs.png', "name1": "گلدن‌استیت واریرز",
                     "address2": 'https://png2.kisspng.com/sh/5ab942379f302c2947f27f84e45e0778/L0KzQYm3VMExN6NBfZH0aYP2gLBuTfxwe15mhtlubHX2Pb3oiBVze15zetM2dYTkeH7xggp7NaRmhp9qboTyfrr2TgNxfaN4RdV1ZYbofLL1hL1kaadmhNtucoOwRbLqhMRjPpU7S6U9NkOxSYi5UsU3QGQ2TaQ8NEC2RoOCVMA3PF91htk=/kisspng-los-angeles-lakers-nba-utah-jazz-san-antonio-spurs-cleveland-cavaliers-5acd4b6d633463.9722568315234036294064.png', 'name2': 'لس‌آنجلس لیکرز',
-                    "result": " - ", "date" : "فردا: ۲۱:۰۰ "
+                    "result": " - ", "subtitle" : "فردا: ۲۱:۰۰ "
                 },
             ];
         } else {
@@ -92,19 +92,19 @@ class MainPageMatches extends React.Component {
                     "type": "فوتبال",
                     "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
                     "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
-                    "result": "۲-۲", "date" : "امروز: ۸:۰۰ "
+                    "result": "۲-۲", "subtitle" : "امروز: ۸:۰۰ "
                 },
                 {
                     "type": "بسکتبال",
                     "address1": 'https://a.espncdn.com/i/teamlogos/nba/500/gs.png', "name1": "گلدن‌استیت واریرز",
                     "address2": 'https://png2.kisspng.com/sh/5ab942379f302c2947f27f84e45e0778/L0KzQYm3VMExN6NBfZH0aYP2gLBuTfxwe15mhtlubHX2Pb3oiBVze15zetM2dYTkeH7xggp7NaRmhp9qboTyfrr2TgNxfaN4RdV1ZYbofLL1hL1kaadmhNtucoOwRbLqhMRjPpU7S6U9NkOxSYi5UsU3QGQ2TaQ8NEC2RoOCVMA3PF91htk=/kisspng-los-angeles-lakers-nba-utah-jazz-san-antonio-spurs-cleveland-cavaliers-5acd4b6d633463.9722568315234036294064.png', 'name2': 'لس‌آنجلس لیکرز',
-                    "result": "۱۱۲ - ۱۰۰", "date" : "امروز: ۱۷:۰۰ "
+                    "result": "۱۱۲ - ۱۰۰", "subtitle" : "امروز: ۱۷:۰۰ "
                 },
                 {
                     "type": "فوتبال",
                     "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
                     "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
-                    "result": " - ", "date" : "امروز: ۲۱:۰۰ "
+                    "result": " - ", "subtitle" : "امروز: ۲۱:۰۰ "
                 },
             ];
         }

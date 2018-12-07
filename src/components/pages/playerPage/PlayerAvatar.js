@@ -24,9 +24,9 @@ function PlayerAvatar(props) {
     return (
         <Grid container justify="center" alignItems="center">
             <div className={classes.avatarWrapper}>
-                <Avatar alt={props.name} src={props.avatar} className={classes.bigAvatar} />
+                <Avatar alt={props.text} src={props.avatar} className={classes.bigAvatar} />
                 <Typography variant="h3" gutterBottom>
-                    {props.name}
+                    {props.text}
                 </Typography>
             </div>
         </Grid>

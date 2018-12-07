@@ -38,7 +38,7 @@ class SimpleSelect extends React.Component {
                         value={this.props.value}
                         onChange={this.handleChange}
                         inputProps={{
-                            name: this.props.subject,
+                            text: this.props.subject,
                             id: this.props.subject,
                         }}
                     >

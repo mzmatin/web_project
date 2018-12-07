@@ -11,13 +11,12 @@ import InfoIcon from '@material-ui/icons/Info';
 const styles = theme => ({
     root: {
         display: 'flex',
-        flexWrap: 'wrap',
+        // flexWrap: 'wrap',
         justifyContent: 'space-around',
         overflow: 'hidden',
         backgroundColor: theme.palette.background.paper,
     },
     gridList: {
-        width: 500,
         height: 450,
     },
     icon: {
@@ -25,21 +24,24 @@ const styles = theme => ({
     },
 });
 
-function LeagueInf(props) {
+const nowrap = {
+  whiteSpace : 'normal',
+};
+function Grid(props) {
     const { classes } = props;
 
     return (
         <div className={classes.root}>
-            <GridList cellHeight={180} className={classes.gridList}>
-                <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
+            <GridList cellHeight={180} className={classes.gridList} style={{width:props.width}}>
+                <GridListTile key="Subheader" cols={props.columns} style={{ height: 'auto' }}>
                     <ListSubheader component="div">{props.listTitle}</ListSubheader>
                 </GridListTile>
-                {props.leagueInf.map((tile, i) => (
+                {props.listItems.map((tile, i) => (
                     <GridListTile key={i}>
-                        <img src={tile.address} alt={tile.name} />
+                        <img src={tile.address} alt={tile.text} />
                         <GridListTileBar
-                            title={tile.name}
-                            subtitle={<span>{tile.date}</span>}
+                            title={<span style={nowrap}>{tile.text}</span>}
+                            subtitle={<span>{tile.subtitle}</span>}
                             actionIcon={
                                 <IconButton className={classes.icon}>
                                     <InfoIcon />
@@ -53,8 +55,8 @@ function LeagueInf(props) {
     );
 }
 
-LeagueInf.propTypes = {
+Grid.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(LeagueInf);
+export default withStyles(styles)(Grid);

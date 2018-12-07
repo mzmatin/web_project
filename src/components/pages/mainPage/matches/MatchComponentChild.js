@@ -55,7 +55,7 @@ class MatchComponentChild extends React.Component{
                 </div>
                 <div className={classes.Date}>
                     <Typography variant="subtitle2" gutterBottom>
-                        {this.props.date}
+                        {this.props.subtitle}
                     </Typography>
                 </div>
           </div>
