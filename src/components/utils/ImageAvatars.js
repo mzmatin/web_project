@@ -9,8 +9,8 @@ import Typography from '@material-ui/core/Typography';
 const styles = {
     bigAvatar: {
         margin: 10,
-        width: 60,
-        height: 60,
+        // width: 60,
+        // height: 60,
     },
     avatarWrapper : {
         display : 'flex',
@@ -24,7 +24,7 @@ function ImageAvatars(props) {
     return (
         <Grid container justify="center" alignItems="center">
             <div className={classes.avatarWrapper}>
-                <Avatar alt="Remy Sharp" src={props.avatar} className={classes.bigAvatar} />
+                <Avatar alt={props.name} src={props.avatar} style={{width: props.size, height: props.size}} className={classes.bigAvatar} />
                 <Typography variant="subtitle2" gutterBottom>
                     {props.name}
                 </Typography>

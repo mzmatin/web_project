@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/react-fontawesome": "^0.1.3",
     "@material-ui/core": "^3.6.1",
     "@material-ui/icons": "^3.0.1",
     "classnames": "latest",
@@ -14,8 +17,11 @@
     "rc-tween-one": "^2.2.18",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-expand-animated": "^1.0.0",
+    "react-persian": "^1.1.1",
     "react-scripts": "2.1.1",
     "react-swipeable-views": "^0.13.0",
+    "styled-components": "^4.1.2",
     "typeface-roboto": "0.0.54"
   },
   "scripts": {
