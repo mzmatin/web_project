@@ -40,7 +40,7 @@ class MainPageNews extends React.Component {
 
         return (
             <div className={classes.root}>
-                <AppBar position="static" color="default">
+                <AppBar position="static" color="default" style={{width:'30vw'}}>
                     <Tabs
                         value={this.state.value}
                         onChange={this.handleChange}
@@ -61,6 +61,7 @@ class MainPageNews extends React.Component {
                     axis={theme.direction === 'ltr' ? 'x-reverse' : 'x'}
                     index={this.state.value}
                     onChangeIndex={this.handleChangeIndex}
+                    style={{width:'30vw'}}
                 >
                     <MainPageNewsContainer title="soccer" fav={this.state.favorite}/>
                     <MainPageNewsContainer title="basketball" fav={this.state.favorite}/>

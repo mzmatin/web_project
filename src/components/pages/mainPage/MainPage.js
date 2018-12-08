@@ -12,7 +12,6 @@ const styles = theme => ({
         alignItems : 'center',
         alignContent : 'center',
         height : '85vh',
-        marginTop: '100px',
     },
 });
 

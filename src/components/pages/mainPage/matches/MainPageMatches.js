@@ -5,7 +5,7 @@ import SwipeableViews from 'react-swipeable-views';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import MatchesList from "./MatchesList";
+import MatchesList from "../../../MatchesList";
 
 const styles = theme => ({
     root: {
@@ -39,7 +39,7 @@ class MainPageMatches extends React.Component {
         const matches_list_all = this.getMatches(1);
         return (
             <div className={classes.root}>
-                <AppBar position="static" color="default">
+                <AppBar position="static" color="default" >
                     <Tabs
                         value={this.state.value}
                         onChange={this.handleChange}
@@ -57,8 +57,8 @@ class MainPageMatches extends React.Component {
                     index={this.state.value}
                     onChangeIndex={this.handleChangeIndex}
                 >
-                    <MatchesList matches={matches_list_fav}/>
-                    <MatchesList matches={matches_list_all}/>
+                    <MatchesList matches={matches_list_fav} height={200}/>
+                    <MatchesList matches={matches_list_all} height={200}/>
                 </SwipeableViews>
             </div>
         );

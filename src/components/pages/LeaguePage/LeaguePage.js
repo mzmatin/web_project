@@ -3,6 +3,7 @@ import {withStyles} from "@material-ui/core";
 import Typography from "@material-ui/core/es/Typography/Typography";
 import Paper from "@material-ui/core/Paper/Paper";
 import Ranking from "./Ranking";
+import MatchesList from "../../MatchesList";
 
 const styles = theme => ({
     leagueMainPageContainer : {
@@ -17,6 +18,7 @@ const styles = theme => ({
         display: 'flex',
         flexDirection : 'row',
         justifyContent: 'space-evenly',
+        alignItems:'baseline',
         flexShrink: '0',
     },
     comeCenter : {
@@ -41,12 +43,12 @@ class LeaguePage extends React.Component{
                   <div>
                       <Ranking ranks={this.getLeagueRanking(this.props.name, this.props.season)}/>
                   </div>
-                  <div>
-                      matches
+                  <div style={{width:'40vw'}}>
+                      <MatchesList matches={this.getSeasonMatches(this.props.name, this.props.season)} height={'60vh'}/>
                   </div>
               </div>
               <div className={classes.comeCenter}>
-                  sa
+                  sadlgjsdlkgjsldgjlsdkfgjlsdfjglsdkgj
               </div>
           </div>
         );
@@ -79,6 +81,49 @@ class LeaguePage extends React.Component{
                 'numOfMatches': 20, 'goalDiff' : 12, 'pts': 46},
         ];
     }
+
+    getSeasonMatches(name, season) {
+        // TODO get desired season matches from server
+        return [
+            {
+                "type": "فوتبال",
+                "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
+                "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
+                "result": "۲-۲", "subtitle": "۲۳آذر : ۲۱:۰۰ "
+            },
+            {
+                "type": "فوتبال",
+                "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
+                "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
+                "result": "۲-۴", "subtitle": "۴ دی: ۲۱:۰۰ "
+            },
+            {
+                "type": "فوتبال",
+                "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
+                "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
+                "result": "۲-۴", "subtitle": "۲ بهمن: ۲۱:۰۰ "
+            },
+            {
+                "type": "فوتبال",
+                "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
+                "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
+                "result": "۲-۴", "subtitle": "۳ مهر: ۲۱:۰۰ "
+            },
+            {
+                "type": "فوتبال",
+                "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
+                "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
+                "result": "۲-۴", "subtitle": "۴دی: ۲۱:۰۰ "
+            },
+            {
+                "type": "فوتبال",
+                "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
+                "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
+                "result": "۲-۴", "subtitle": "۷ اسفند: ۲۱:۰۰ "
+            },
+        ]
+    }
+
 }
 
 export default withStyles(styles, { withTheme: true })(LeaguePage);

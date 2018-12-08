@@ -1,6 +1,6 @@
 import React from 'react';
 import MatchComponentChild from "./MatchComponentChild";
-import PaperSheet from "../../../PaperSheet";
+import PaperSheet from "./PaperSheet";
 import Paper from "@material-ui/core/Paper/Paper";
 
 
@@ -9,6 +9,7 @@ class MatchesList extends React.Component {
     render() {
         let matches_list = [];
         for (let i = 0; i < this.props.matches.length; i++){
+            console.log(this.props.matches[i]["subtitle"]);
             matches_list.push(
                 <PaperSheet key={i} childComponent={<MatchComponentChild
                     type={this.props.matches[i]["type"]}
@@ -20,7 +21,7 @@ class MatchesList extends React.Component {
             );
         }
         return (
-            <Paper style={{maxHeight: 200, overflow: 'auto'}}>
+            <Paper style={{maxHeight: this.props.height, overflow: 'auto'}}>
                 {matches_list}
             </Paper>
 

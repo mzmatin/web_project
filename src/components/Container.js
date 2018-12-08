@@ -2,7 +2,7 @@ import React from 'react';
 import AppNavBar from "./AppNavBar";
 import RTL from "./utils/RTL";
 import {withStyles} from "@material-ui/core";
-import LeaguePage from "./pages/LeaguePage/LeaguePage";
+import PlayerPage from "./pages/playerPage/PlayerPage";
 
 const styles = theme => ({
     appContainer : {
@@ -18,7 +18,8 @@ class Container extends React.Component{
             <RTL>
                 <AppNavBar />
                 <div className={classes.appContainer}>
-                    <LeaguePage name={"لیگ برتر انگلیس"} season={"۹۸-۹۷"} />
+                    {/*<LeaguePage name={"لیگ برتر انگلیس"} season={"۹۸-۹۷"} />*/}
+                    <PlayerPage/>
                 </div>
             </RTL>
         );

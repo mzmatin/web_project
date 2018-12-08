@@ -3,7 +3,7 @@ import {withStyles} from "@material-ui/core";
 import PropTypes from "prop-types";
 import 'typeface-roboto';
 import Typography from '@material-ui/core/Typography';
-import ImageAvatars from "../../../utils/ImageAvatars";
+import ImageAvatars from "./utils/ImageAvatars";
 
 const styles = theme => ({
    matchComponent : {
@@ -42,7 +42,7 @@ class MatchComponentChild extends React.Component{
                 </div>
                 <div className={classes.logoName}>
                     <div>
-                        <ImageAvatars avatar={this.props.address1} name={this.props.name1}/>
+                        <ImageAvatars size={60} avatar={this.props.address1} name={this.props.name1}/>
                     </div>
                     <div className={classes.result}>
                         <Typography variant="subtitle2" gutterBottom>
@@ -55,7 +55,7 @@ class MatchComponentChild extends React.Component{
                 </div>
                 <div className={classes.Date}>
                     <Typography variant="subtitle2" gutterBottom>
-                        {this.props.subtitle}
+                        {this.props.date}
                     </Typography>
                 </div>
           </div>
