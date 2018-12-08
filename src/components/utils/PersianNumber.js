@@ -6,7 +6,6 @@ class PersianNumber extends Component {
 
     render() {
         let en_number = this.props.children;
-        console.log(en_number);
         let persianDigits = "۰۱۲۳۴۵۶۷۸۹";
         let persianMap = persianDigits.split("");
         let persian_number = en_number.replace(/\d/g, function (m) {
