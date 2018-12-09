@@ -10,9 +10,11 @@ class Members extends React.Component{
     render() {
         const { classes} = this.props;
         const member_list = this.getTeamMembers(this.props.teamCode);
+        const name = this.getClubName(this.props.teamCode);
+        const logo = this.getLogo(this.props.teamCode);
         return (
           <div>
-              <MembersList members={member_list}/>
+              <MembersList members={member_list} club={name} logo={logo}/>
           </div>
         );
     }
@@ -45,10 +47,20 @@ class Members extends React.Component{
                 {
                     'name': "علی",
                     'address': 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png',
-                    "position": "trainer"
+                    "position": "body_trainer"
                 },
             ];
         }
+    }
+
+    getClubName(teamCode) {
+        // TODO get club name from server
+        return "بارسلونا";
+    }
+
+    getLogo(teamCode) {
+        // TODO get club logo from server
+        return "http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png";
     }
 }
 
