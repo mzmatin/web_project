@@ -5,7 +5,7 @@ import PlayerAvatar from "./PlayerAvatar";
 import PlayerTable from "./PlayerInfTable";
 import PlayerStatTable from "./PlayerStatTable";
 import SimpleSelect from "../../SimpleSelect";
-import Grid from "../../Grid";
+import Grid from "../../utils/Grid";
 
 const styles = ({
     playerPageContainer : {

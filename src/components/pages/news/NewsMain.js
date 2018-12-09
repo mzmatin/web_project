@@ -10,8 +10,11 @@ import Chip from '@material-ui/core/Chip';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import PaperSheet from "./PaperSheet";
-import PersianNumber from './utils/PersianNumber';
+import PaperSheet from "../../PaperSheet";
+import PersianNumber from '../../utils/PersianNumber';
+import TextField from "@material-ui/core/TextField/TextField";
+import ImageAvatars from "../../utils/ImageAvatars";
+import Comment from "./Comment";
 
 
 const styles = theme => ({
@@ -19,6 +22,10 @@ const styles = theme => ({
         display: 'flex',
         maxWidth: 800,
         flexDirection: 'column',
+        marginLeft: theme.spacing.unit * 4,
+    },
+    flex: {
+        display: 'flex',
     },
     resourceChipContainer: {
         display: 'flex',
@@ -76,6 +83,27 @@ const styles = theme => ({
         margin: theme.spacing.unit,
         color: 'green',
     },
+    commentsContainer: {
+        marginTop: theme.spacing.unit * 2,
+        borderStyle: 'solid',
+        borderWidth: 'thin',
+        borderRadius: theme.spacing.unit,
+        borderColor: 'grey',
+    },
+    commentsTitleContainer: {
+        color: 'white',
+        backgroundColor: 'darkBlue',
+        borderTopLeftRadius: theme.spacing.unit,
+        borderTopRightRadius: theme.spacing.unit,
+        padding: theme.spacing.unit,
+    },
+    title: {
+        padding: theme.spacing.unit * 2,
+    },
+    form: {
+        width: '100%',
+        marginLeft: theme.spacing.unit * 3,
+    },
     likeContainer: {
         display: 'flex',
         marginRight: theme.spacing.unit * 2,
@@ -92,22 +120,36 @@ const styles = theme => ({
         height: 0,
         paddingTop: '56.25%', // 16:9
     },
+    buttonSend: {
+        marginTop: theme.spacing.unit,
+        padding: theme.spacing.unit * 0.25,
+        backgroundColor: 'rgb(51, 193, 93)',
+        color: 'white',
+        width: theme.spacing.unit * 16,
+    },
     actions: {
         display: 'flex',
+    },
+    textField: {
+        marginLeft: theme.spacing.unit,
+        marginRight: theme.spacing.unit,
     },
     avatar: {
         backgroundColor: red[500],
     },
+    flexMarginBottom: {
+        display: 'flex',
+        marginBottom: theme.spacing.unit * 2,
+        justifyContent: 'flex-end',
+    },
 });
 
-class RecipeReviewCard extends React.Component {
+class NewsMain extends React.Component {
 
     state = {
         like: false,
         disLike: false,
     };
-
-
 
     handleTagChipClick = (event, label) => {
         //TODO: go to news page with the clicked tag
@@ -137,43 +179,44 @@ class RecipeReviewCard extends React.Component {
         const { classes } = this.props;
         const { like, disLike } = this.state;
 
-        // let resources = [];
-        // for (let i = 0; i < this.props.resourceChips.length; i++) {
-        //     resources.push(
-                {/*<Chip key={i} onClick={(e) => {this.handleSourceChipClick(e, this.props.resourceChips[i])}} label={this.props.resourceChips[i]} className={classes.resourceChip} variant="outlined" />*/}
-            // )
-        // }
+        let comments = [];
+        for (let i = 0; i < this.props.news.comments.length; i++) {
+            comments.push(
+                <Comment key={i} userAvatar ={this.props.userAvatar} comment={this.props.news.comments[i]}/>
+            )
+        }
 
-        // let tags = [];
-        // for (let i = 0; i < this.props.tagChips.length; i++) {
-        //     tags.push(
-                {/*<Chip key={i} onClick={(e) => {this.handleSourceChipClick(e, this.props.tagChips[i])}} label={this.props.tagChips[i]} className={classes.tagChip} variant="outlined" />*/}
-            // )
-        // }
+        let resources = [];
+        for (let i = 0; i < this.props.news.resources.length; i++) {
+            resources.push(
+                <Chip key={i} onClick={(e) => {this.handleSourceChipClick(e, this.props.news.resources[i])}} label={this.props.news.resources[i]} className={classes.resourceChip} variant="outlined" />
+            )
+        }
+
+        let tags = [];
+        for (let i = 0; i < this.props.news.tags.length; i++) {
+            tags.push(
+                <Chip key={i} onClick={(e) => {this.handleTagChipClick(e, this.props.news.tags[i])}} label={this.props.news.tags[i]} className={classes.tagChip} variant="outlined" />
+            )
+        }
 
         return (
             <div className={classes.root}>
                 <div className={classes.resourceChipContainer}>
-                    <Chip onClick={(e) => {this.handleSourceChipClick(e, "فارس نیوز")}} label={"فارس نیوز"} className={classes.resourceChip} variant="outlined" />
-                    <Chip onClick={(e) => {this.handleSourceChipClick(e, "عرب نیوز")}} label={"عرب نیوز"} className={classes.resourceChip} variant="outlined" />
-                    {/*{resources}*/}
+                    {resources}
                 </div>
                 <Card className={classes.card}>
                     <div className={classes.cardSection}>
                         <CardMedia
                             className={classes.media}
-                            image = 'http://www.logologo.com/logos/letter-a-logo.jpg'
-                            // image = {this.props.imageUrl}
-                            title="Paella dish"
-                            // title={this.props.title}
+                            image = {this.props.news.imageUrl}
+                            title={this.props.news.title}
                         />
                     </div>
                     <CardContent className={classes.cardSection}>
-                        <h3>شوک به فوتبال ایران</h3>
-                        {/*<h3>{this.props.title}</h3>*/}
+                        <h3>{this.props.news.title}</h3>
                         <Typography className={classes.summary} component="p">
-                            {/*{this.props.summary}*/}
-                            برخی منابع موثق از حضور نیافتن رییس فدراسیون فوتبال در محل کار خود خبر می‌دهند.
+                            {this.props.news.summary}
                         </Typography>
                         <div className={classes.newsInfo}>
                             <div className={classes.newsInfoSection}>
@@ -182,31 +225,25 @@ class RecipeReviewCard extends React.Component {
                                     color="grey"
                                     size="2sm"
                                 />
-                                {/*{this.props.views}*/}
-                                {' '}۲۱۳۱۴
+                                {' '}<PersianNumber>{this.props.news.viewsCount}</PersianNumber>
                             </div>
                             <div className={classes.newsInfoSection}>
-                                {/*{this.props.time}*/}
-                                ۲۱:۳۴
+                                <PersianNumber>{this.props.news.time.hour}</PersianNumber>
+                                {':'}<PersianNumber>{this.props.news.time.minute}</PersianNumber>
+                                {':'}<PersianNumber>{this.props.news.time.second}</PersianNumber>
                             </div>
                             <div className={classes.newsInfoSection}>
-                                {/*{this.props.date}*/}
-                                ۱۳۹۷/۲/۲۱
+                                <PersianNumber>{this.props.news.time.day}</PersianNumber>
+                                {' '}{this.props.news.time.month}
+                                {' '}<PersianNumber>{this.props.news.time.year}</PersianNumber>
                             </div>
                         </div>
                     </CardContent>
                 </Card>
                 <Paper>
                     <Typography className={classes.newsBody}>
-                        به گزارش وبسایت نود، ادامه سکوت وزارت ورزش درباره تعیین تکلیف فدراسیون فوتبال و پاسخ ندادن به نامه‌های مکرر فدراسیون باعث بروز مشکلات در این فدراسیون برای آماده‌سازی تیم‌های ملی به ویژه تیم‌ملی بزرگسالان شده است
-
-                        در تازه‌ترین تحولات، مرد اول ساختمان سئول امروز بعد از پایان مهلت قانونی به محل کار خود مراجعه نکرد تا فوتبال ایران با یک شوک احتمالی مواجه شود.
-
-                        اتفاقی که صرف نظر از واکنش‌های بین‌المللی مشخص نیست وضعیت فوتبال ما را در آستانه جام ملت‌ها با چه روندی روبرو خواهد ساخت‌.
-
-                        پیش از این حمیدرضا گرشاسبی که او هم مشمول قانون منع به کارگیری بازنشستگان محسوب می شد، در محل کارش در باشگاه پرسپولیس حاضر شده بود.
+                        {this.props.news.content}
                     </Typography>
-                    {/*{this.props.content}*/}
                     <div className={classes.likeContainer}>
                         <Button onClick={this.handleLike} variant="contained" color="default" className={classes.button}>
                             <FontAwesomeIcon className={classes.rightIcon}
@@ -214,8 +251,7 @@ class RecipeReviewCard extends React.Component {
                                 color={like ? 'green' : 'grey'}
                                 size="2sm"
                             />
-                            {/*{<PersianNumber>{String(this.props.likeCount + (like ? 1 : 0))}</PersianNumber>}*/}
-                            {' '}۲۵۶
+                            {' '}{<PersianNumber>{String(this.props.news.likeCount + (like ? 1 : 0))}</PersianNumber>}
                         </Button>
                         <Button onClick={this.handleDisLike} variant="contained" color="default" className={classes.button}>
                             <FontAwesomeIcon className={classes.rightIcon}
@@ -223,15 +259,41 @@ class RecipeReviewCard extends React.Component {
                                 color={disLike ? 'red' : 'grey'}
                                 size="2sm"
                             />
-                            {/*{' '}{<PersianNumber>{String(this.props.disLikeCount + (disLike ? 1 : 0))}</PersianNumber>}*/}
-                            {' '}{<PersianNumber>35</PersianNumber>}
+                            {' '}{<PersianNumber>{String(this.props.news.disLikeCount + (disLike ? 1 : 0))}</PersianNumber>}
                         </Button>
                     </div>
                     <div className={classes.tagChipContainer}>
-                        <Chip onClick={(e) => {this.handleTagChipClick(e, "فارس نیوز")}} label={"فارس نیوز"} className={classes.tagChip} variant="outlined" />
-                        <Chip onClick={(e) => {this.handleTagChipClick(e, "عرب نیوز")}} label={"عرب نیوز"} className={classes.tagChip} variant="outlined" />
-                        {/*{tags}*/}
+                        {tags}
                     </div>
+                </Paper>
+                <Paper className={classes.commentsContainer}>
+                    <div className={classes.commentsTitleContainer}>
+                        <span className={classes.title}>نظرات کاربران</span>
+                    </div>
+                    <div className={classes.flex}>
+                        <ImageAvatars avatar = {this.props.userAvatar} size = {50}/>
+                        <div className={classes.form}>
+                            <form>
+                                <TextField
+                                    onChange={this.handleReplyChange}
+                                    fullWidth
+                                    id="commentReply"
+                                    placeholder={'نظر شما'}
+                                    multiline
+                                    className={classes.textField}
+                                    margin="normal"
+                                    required
+                                    variant="outlined"
+                                />
+                            </form>
+                            <div className={classes.flexMarginBottom}>
+                                <Button onClick={this.handleReplySend} variant="contained" className={classes.buttonSend}>
+                                    {' '}{'ارسال'}
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                        {comments}
                 </Paper>
             </div>
 
@@ -239,8 +301,8 @@ class RecipeReviewCard extends React.Component {
     }
 }
 
-RecipeReviewCard.propTypes = {
+NewsMain.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(RecipeReviewCard);
+export default withStyles(styles)(NewsMain);
