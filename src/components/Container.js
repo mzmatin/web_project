@@ -1,8 +1,9 @@
 import React from 'react';
 import AppNavBar from "./AppNavBar";
 import RTL from "./utils/RTL";
-import {withStyles} from "@material-ui/core";
-import PlayerPage from "./pages/playerPage/PlayerPage";
+import withStyles from "@material-ui/core/es/styles/withStyles";
+import Members from "./pages/TeamPage/Members";
+import Field from "./pages/TeamPage/Field";
 
 const styles = theme => ({
     appContainer : {
@@ -19,7 +20,9 @@ class Container extends React.Component{
                 <AppNavBar />
                 <div className={classes.appContainer}>
                     {/*<LeaguePage name={"لیگ برتر انگلیس"} season={"۹۸-۹۷"} />*/}
-                    <PlayerPage/>
+                    {/*<PlayerPage/>*/}
+                    {/*<Members teamCode={0}/>*/}
+                    <Field/>
                 </div>
             </RTL>
         );
