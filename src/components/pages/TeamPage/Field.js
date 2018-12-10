@@ -13,7 +13,6 @@ class Field extends React.Component{
         const pos = this.getPos(this.props.position);
         let avatar = <div></div>;
         if (pos !== null){
-            console.log(pos.x, pos.y);
             avatar = (
                 <div style={{
                     marginRight: pos.y.toString() +'px',
@@ -71,6 +70,20 @@ class Field extends React.Component{
             case 'fl':
                 return {'x': 110 * width/100, 'y':height/2};
                 break;
+            case 'bpg':
+                return {'x':width, 'y':0};
+                break;
+            case 'bsg':
+                return {'x':1.12*width, 'y':height/3};
+                break;
+            case 'bsf':
+                return {'x':1.45*width, 'y':-height/4};
+                break;
+            case 'bpf':
+                return {'x':1.3*width, 'y':height/4};
+                break;
+            case 'bc':
+                return {'x':1.25*width, 'y':-height/4};
         }
         return null;
     }

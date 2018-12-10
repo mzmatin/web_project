@@ -5,7 +5,9 @@ import withStyles from "@material-ui/core/es/styles/withStyles";
 import div from "@material-ui/core/es/Paper/Paper";
 import Field from "./Field";
 import PlayerAvatar from "../player/PlayerAvatar";
-import PlayerPage from "../player/PlayerPage";
+import InputAdornment from "@material-ui/core/InputAdornment/InputAdornment";
+import SearchIcon from '@material-ui/icons/Search';
+import Input from "@material-ui/core/Input/Input";
 
 const styles = theme => ({
     chip: {
@@ -24,6 +26,7 @@ const styles = theme => ({
         flexDirection : 'column',
         width: '170px',
         marginLeft:'50px',
+        alignItems: 'center',
     },
     teamContainer : {
         display: 'flex',
@@ -52,6 +55,14 @@ class MembersList extends React.Component{
     render() {
         const { classes} = this.props;
         const members = this.props.members;
+        let field = undefined;
+        if (this.props.sport === "soccer"){
+            field = {'url' : 'https://i.etsystatic.com/11118846/r/il/0f6306/1133393522/il_570xN.1133393522_bnzg.jpg',
+                'width':570, 'height':806};
+        } else {
+            field = {'url' : 'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX24223786.jpg',
+                'width':463, 'height':800};
+        }
         let member_list = [];
         for (let i = 0; i < members.length; i++){
             member_list.push(
@@ -82,10 +93,20 @@ class MembersList extends React.Component{
                             address:this.props.logo,
                         })
                     }}>
+                        <Input
+                            id="input-with-icon-adornment"
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    <SearchIcon />
+                                </InputAdornment>
+                            }
+                            placeholder={"پست"}
+                            onKeyDown={this.props.handlePost}
+                        />
                         {member_list}
                     </div>
-                    <Field width={570} height={806}
-                           src={"https://i.etsystatic.com/11118846/r/il/0f6306/1133393522/il_570xN.1133393522_bnzg.jpg"}
+                    <Field width={field.width} height={field.height}
+                           src={field.url}
                             position={this.state.position} address={this.state.address} name={this.state.name}
                     />
                 </div>

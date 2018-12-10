@@ -49,17 +49,17 @@ class LeagueMainPage extends React.Component {
         console.log(this.state.currentLeaguesInformation,this.state.oldLeaguesInformation);
                return (
           <div className={classes.leagueMainPageContainer}>
+              <Input
+                  id="input-with-icon-adornment"
+                  startAdornment={
+                      <InputAdornment position="start">
+                          <SearchIcon />
+                      </InputAdornment>
+                  }
+                  placeholder={"نام لیگ:سال"}
+                  onKeyDown={this.handleLeaguePage}
+              />
               <div className={classes.leagueTables}>
-                  <Input
-                      id="input-with-icon-adornment"
-                      startAdornment={
-                          <InputAdornment position="start">
-                              <SearchIcon />
-                          </InputAdornment>
-                      }
-                      placeholder={"نام لیگ:سال"}
-                      onKeyDown={this.handleSearch}
-                  />
               </div>
               <div className={classes.leagueTables}>
                   <div>
@@ -73,7 +73,7 @@ class LeagueMainPage extends React.Component {
         );
     }
 
-    handleSearch = (event) => {
+    handleLeaguePage = (event) => {
         if (event.key === 'Enter'){
             let input = event.target.value;
             if (input === ""){
