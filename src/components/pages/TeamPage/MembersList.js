@@ -8,6 +8,8 @@ import PlayerAvatar from "../player/PlayerAvatar";
 import InputAdornment from "@material-ui/core/InputAdornment/InputAdornment";
 import SearchIcon from '@material-ui/icons/Search';
 import Input from "@material-ui/core/Input/Input";
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 const styles = theme => ({
     chip: {
@@ -32,7 +34,10 @@ const styles = theme => ({
         display: 'flex',
         flexDirection: 'row',
         marginTop: '50px',
-    }
+    },
+    fab: {
+        margin: theme.spacing.unit,
+    },
 });
 
 class MembersList extends React.Component{
@@ -93,6 +98,10 @@ class MembersList extends React.Component{
                             address:this.props.logo,
                         })
                     }}>
+                        <Fab variant="extended" aria-label="Delete" className={classes.fab} color={"primary"} onClick={()=>{alert("دنبال شد:)")}}>
+                            <AddIcon/>
+                            دنبال
+                        </Fab>
                         <Input
                             id="input-with-icon-adornment"
                             startAdornment={

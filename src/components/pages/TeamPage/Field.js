@@ -1,6 +1,5 @@
 import React from 'react';
 import withStyles from "@material-ui/core/es/styles/withStyles";
-import Avatar from "@material-ui/core/Avatar/Avatar";
 import ImageAvatars from "../../utils/ImageAvatars";
 
 const styles = theme => ({

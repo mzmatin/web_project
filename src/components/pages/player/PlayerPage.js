@@ -7,11 +7,11 @@ import PlayerStatTable from "./PlayerStatTable";
 import SimpleSelect from "../../SimpleSelect";
 import Grid from "../../utils/Grid";
 
-const styles = ({
+const styles = theme => ({
     playerPageContainer : {
         display : 'flex',
         flexDirection : 'column',
-        justifyContent : 'space-around',
+        justifyContent : 'center',
         height : '85vh',
         marginTop: '100px',
     },
@@ -37,7 +37,7 @@ class PlayerPage extends React.Component {
         const name = this.getPlayerName(this.props.playerCode);
         const address = this.getAddress(this.props.playerCode);
         const stat = this.getStat(1);
-        const newsList = this.getNews(this.props.playerCode);
+        const newsList = this.getRelatedPlayerNews(this.props.playerCode);
         return (
 
             <div className={classes.playerPageContainer}>
@@ -49,8 +49,8 @@ class PlayerPage extends React.Component {
                         <PlayerTable information={information}/>
                     </div>
                 </div>
-                <div className={classes.rowContainer}>
-                    <div>
+                <div className={classes.rowContainer} style={{marginTop:'100px'}}>
+                    <div style={{marginLeft:'40px'}}>
                         <SimpleSelect subject={"فصل"} items={["۱۳۹۶-۱۳۹۷", "۱۳۹۵-۱۳۹۶"]}
                                       value={this.state.season}
                                       leagueChange={(league) => {
@@ -58,9 +58,7 @@ class PlayerPage extends React.Component {
                         }}/>
                         <PlayerStatTable information={stat}/>
                     </div>
-                    <div>
-                        <Grid listItems={newsList} listTitle={"اخبار مرتبط"} width={400} columns={2}/>
-                    </div>
+                    <Grid listItems={newsList} listTitle={"اخبار مرتبط"} width={'auto'} columns={2}/>
                 </div>
             </div>
         );
@@ -134,7 +132,8 @@ class PlayerPage extends React.Component {
         }
     }
 
-    getNews(playerCode) {
+    getRelatedPlayerNews(playerCode) {
+        // TODO get related news to player from the server
         return [
             {"text": "پله: مارادونا همه چیز داشت، مسی نه ",
                 "address": "https://static.farakav.com/files/pictures/thumb/01360957.jpg",
