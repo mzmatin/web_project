@@ -2,26 +2,32 @@ import React from 'react';
 import AppNavBar from "./AppNavBar";
 import RTL from "./utils/RTL";
 import {withStyles} from "@material-ui/core";
-import PlayerPage from "./pages/playerPage/PlayerPage";
+import NewsPage from "./pages/news/NewsPage";
 
 const styles = theme => ({
+    baseContainer: {
+    },
     appContainer : {
-        maxWidth : '100vw',
-        marginTop: '80px',
+        marginLeft: theme.spacing.unit * 12,
+        marginRight: theme.spacing.unit * 12,
+        marginTop: theme.spacing.unit * 12,
     }
 });
+
+
 
 class Container extends React.Component{
     render() {
         const { classes} = this.props;
         return (
-            <RTL>
+            <div className={classes.baseContainer}>
+                <RTL>
                 <AppNavBar />
+                </RTL>
                 <div className={classes.appContainer}>
-                    {/*<LeaguePage name={"لیگ برتر انگلیس"} season={"۹۸-۹۷"} />*/}
-                    <PlayerPage/>
+                    <NewsPage/>
                 </div>
-            </RTL>
+            </div>
         );
     }
 }

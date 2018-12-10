@@ -11,13 +11,15 @@ import InfoIcon from '@material-ui/icons/Info';
 const styles = theme => ({
     root: {
         display: 'flex',
+        flexDirection: 'column',
         // flexWrap: 'wrap',
-        justifyContent: 'space-around',
+        justifyContent: 'flex-start',
         overflow: 'hidden',
         backgroundColor: theme.palette.background.paper,
+        padding: theme.spacing.unit * 2,
     },
     gridList: {
-        height: 450,
+        height: 'auto',
     },
     icon: {
         color: 'rgba(255, 255, 255, 0.54)',

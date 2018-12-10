@@ -6,23 +6,26 @@ import Grid from '@material-ui/core/Grid';
 import 'typeface-roboto';
 import Typography from '@material-ui/core/Typography';
 
-const styles = {
+const styles = theme => ({
     bigAvatar: {
-        margin: 10,
-        // width: 60,
-        // height: 60,
+        margin: theme.spacing.unit * 2,
+    },
+    avatarGrid:{
+        width: 'auto',
+        marginLeft: theme.spacing.unit * 4,
+        marginRight: theme.spacing.unit * 4,
     },
     avatarWrapper : {
         display : 'flex',
         flexDirection : 'column',
         alignItems : 'center',
     }
-};
+});
 
 function ImageAvatars(props) {
     const { classes } = props;
     return (
-        <Grid container justify="center" alignItems="center">
+        <Grid container justify="center" alignItems="center" className={classes.avatarGrid}>
             <div className={classes.avatarWrapper}>
                 <Avatar alt={props.name} src={props.avatar} style={{width: props.size, height: props.size}} className={classes.bigAvatar} />
                 <Typography variant="subtitle2" gutterBottom>
