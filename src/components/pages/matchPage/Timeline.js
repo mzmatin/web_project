@@ -1,28 +1,72 @@
-import {Timeline, TimelineEvent, TimelineBlip} from 'react-event-timeline'
-import React from "react";
-import {withStyles} from "@material-ui/core";
+import React from 'react';
+import PropTypes from 'prop-types';
+import {withStyles} from '@material-ui/core/styles';
+import timeline from "../../../drawables/timeline.svg";
+import Event from "./Event";
+import Paper from "@material-ui/core/Paper/Paper";
+import basketTimeline from "../../../drawables/basketTimeline.svg"
 
-class Timeline extends React.Component{
-    render () {
+const styles = theme => ({
+    root: {
+        display: 'flex',
+        flexDirection: 'column',
+        height: theme.spacing.unit * 25,
+        width: '80%',
+        alignSelf: 'center',
+    },
+    teamContainer: {
+        position: 'relative',
+        width: '100%',
+        flexGrow: 1,
+    },
+    timelineRoot: {
+        display: 'flex',
+        flexDirection: 'column',
+        marginTop: theme.spacing.unit * 2,
+    }
+});
+
+
+class Timeline extends React.Component {
+
+    render() {
+        const { classes } = this.props;
+
+        let homeEvents = [];
+        for (let i = 0; i < this.props.homeEvents.length; i++) {
+            homeEvents.push(
+                <Event key={i} home = {true} event = {this.props.homeEvents[i]}/>
+            )
+        }
+        let awayEvents = [];
+        for (let i = 0; i < this.props.awayEvents.length; i++) {
+            awayEvents.push(
+                <Event key={i} home = {false} event = {this.props.awayEvents[i]}/>
+            )
+        }
+
         return (
-            <Timeline orientation={'right'}>
-                <TimelineEvent title="John Doe sent a SMS"
-                               icon={<i className="material-icons md-18">textsms</i>}
-                              orientation={'right'}
-                >
-                </TimelineEvent>
-                <TimelineEvent
-                    title="You sent an email to John Doe"
-                    createdAt="2016-09-11 09:06 AM"
-                    icon={<i className="material-icons md-18">email</i>}
-                >
-                    Like we talked, you said that you would share the shipment details? This is an urgent order and so I
-                    am losing patience. Can you expedite the process and pls do share the details asap. Consider this a
-                    gentle reminder if you are on track already!
-                </TimelineEvent>
-            </Timeline>
+            <Paper className={classes.timelineRoot}>
+                <div className={classes.root}>
+                    <div className={classes.teamContainer}>
+                        {homeEvents}
+                    </div>
+                    <div>
+                        <img src={this.props.sport === 'فوبال' ? timeline : basketTimeline} style={{width: '100%'}}/>
+                    </div>
+                    <div className={classes.teamContainer}>
+                        {awayEvents}
+                    </div>
+                </div>
+            </Paper>
+
         );
     }
 }
 
-export default (Timeline);
+Timeline.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+
+export default withStyles(styles)(Timeline);
