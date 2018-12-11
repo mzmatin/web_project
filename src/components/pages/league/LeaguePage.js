@@ -1,6 +1,5 @@
 import React from 'react';
 import {withStyles} from "@material-ui/core";
-import Typography from "@material-ui/core/es/Typography/Typography";
 import Paper from "@material-ui/core/Paper/Paper";
 import Ranking from "./Ranking";
 import MatchesList from "../../MatchesList";
@@ -37,9 +36,9 @@ class LeaguePage extends React.Component{
           <div className={classes.leagueMainPageContainer}>
               <div className={classes.comeCenter}>
                   <Paper>
-                      <Typography variant="h2" gutterBottom>
+                      <div variant="h2" gutterBottom >
                           {this.props.name + " " + this.props.season}
-                      </Typography>
+                      </div>
                   </Paper>
               </div>
               <div className={classes.leagueTables}>
