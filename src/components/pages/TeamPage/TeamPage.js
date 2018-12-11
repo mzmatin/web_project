@@ -3,6 +3,7 @@ import withStyles from "@material-ui/core/es/styles/withStyles";
 import Members from "./Members";
 import MatchesList from "../../MatchesList";
 import Grid from "../../utils/Grid";
+import Checkbox from "@material-ui/core/Checkbox/Checkbox";
 
 const styles = theme => ({
     teamPageContainer:{
@@ -20,6 +21,15 @@ const styles = theme => ({
 });
 
 class TeamPage extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            win : true,
+            defeat: true,
+            draw: true,
+            date: true,
+        }
+    }
     render() {
         const { classes} = this.props;
         const teamCode = this.getTeamCode();
@@ -29,6 +39,62 @@ class TeamPage extends React.Component{
                 <Members teamCode={teamCode}/>
                 <div className={classes.matchNewsContainer}>
                     <div style={{marginLeft:'20px'}}>
+                        <Checkbox
+                            checked={this.state.win}
+                            onChange={() => {
+                                if (!(this.state.draw || this.state.defeat || !this.state.win)){
+                                    alert("حداقل یکی از سه گزینه‌ی برد، باخت یا تساوی باید انتخاب شود.")
+                                    return;
+                                }
+                                const win = this.state.win;
+                                this.setState({
+                                    win: !win,
+                                });
+                            }}
+                            value="win_filter"
+                        />
+                        برد
+                        <Checkbox
+                            checked={this.state.defeat}
+                            onChange={() => {
+                                if (!(this.state.draw || !this.state.defeat || this.state.win)){
+                                    alert("حداقل یکی از سه گزینه‌ی برد، باخت یا تساوی باید انتخاب شود.")
+                                    return;
+                                }
+                                const defeat = this.state.defeat;
+                                this.setState({
+                                    defeat: !defeat,
+                                });
+                            }}
+                            value="defeat_filter"
+                        />
+                        باخت
+                        <Checkbox
+                            checked={this.state.draw}
+                            onChange={() => {
+                                if (!(!this.state.draw || this.state.defeat || this.state.win)){
+                                    alert("حداقل یکی از سه گزینه‌ی برد، باخت یا تساوی باید انتخاب شود.")
+                                    return;
+                                }
+                                const draw = this.state.draw;
+                                this.setState({
+                                    draw: !draw,
+                                });
+                            }}
+                            value="draw_filter"
+                        />
+                        مساوی
+                        <Checkbox
+                            checked={this.state.date}
+                            onChange={() => {
+                                const date = this.state.date;
+                                this.setState({
+                                    date: !date,
+                                });
+                            }}
+                            value="date_filter"
+                        />
+                        تاریخ
                         <MatchesList matches={this.getTeamMatchesList(teamCode)} height={'60vh'}/>
                     </div>
                     <Grid listItems={newsList} listTitle={"اخبار مرتبط"} width={'auto'} columns={2}/>
@@ -44,44 +110,48 @@ class TeamPage extends React.Component{
 
     getTeamMatchesList(teamCode) {
         // TODO get team matches from the server
-        return [
-            {
+        let result = [];
+        if (this.state.win){
+            result.push({
                 "type": "فوتبال",
                 "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
                 "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
-                "result": "۲-۲", "subtitle": "۲۳آذر : ۲۱:۰۰ "
-            },
-            {
+                "result": "۲-۴", "subtitle": "۱ فروردین: ۲۱:۰۰ "
+            }, {
                 "type": "فوتبال",
                 "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
                 "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
-                "result": "۲-۴", "subtitle": "۴ دی: ۲۱:۰۰ "
-            },
-            {
+                "result": "۲-۴", "subtitle": "۱ اردیبهشت: ۲۱:۰۰ "
+            });
+        }
+        if (this.state.draw){
+            result.push({
                 "type": "فوتبال",
                 "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
                 "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
-                "result": "۲-۴", "subtitle": "۲ بهمن: ۲۱:۰۰ "
-            },
-            {
-                "type": "فوتبال",
-                "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
-                "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
-                "result": "۲-۴", "subtitle": "۳ مهر: ۲۱:۰۰ "
-            },
-            {
-                "type": "فوتبال",
-                "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
-                "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
-                "result": "۲-۴", "subtitle": "۴دی: ۲۱:۰۰ "
-            },
-            {
-                "type": "فوتبال",
-                "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
-                "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
-                "result": "۲-۴", "subtitle": "۷ اسفند: ۲۱:۰۰ "
-            },
-        ]
+                "result": "۲-۲", "subtitle": "۱ خرداد : ۲۱:۰۰ "
+            },{
+                    "type": "فوتبال",
+                    "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
+                    "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
+                    "result": "۳-۳", "subtitle": "۱ تیر: ۲۱:۰۰ "
+                });
+        }
+        if (this.state.defeat){
+            result.push({
+                    "type": "فوتبال",
+                    "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
+                    "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
+                    "result": "۴-۲", "subtitle": "۱ مرداد: ۲۱:۰۰ "
+                },
+                {
+                    "type": "فوتبال",
+                    "address1": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "name1": "بارسلونا",
+                    "address2": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'name2': 'چلسی',
+                    "result": "۳-۱", "subtitle": "۱ شهریور: ۲۱:۰۰ "
+                });
+        }
+        return result;
     }
 
     getRelatedTeamNews(teamCode) {
