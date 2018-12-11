@@ -20,7 +20,7 @@ import Comment from "./Comment";
 const styles = theme => ({
     root: {
         display: 'flex',
-        maxWidth: 800,
+        maxWidth: "65%",
         flexDirection: 'column',
         marginLeft: theme.spacing.unit * 4,
     },

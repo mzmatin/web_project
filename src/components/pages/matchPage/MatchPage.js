@@ -1,23 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import red from '@material-ui/core/colors/red';
-import Chip from '@material-ui/core/Chip';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import PaperSheet from "../../PaperSheet";
-import PersianNumber from '../../utils/PersianNumber';
-import TextField from "@material-ui/core/TextField/TextField";
-import ImageAvatars from "../../utils/ImageAvatars";
-import Comment from "./Comment";
-import Grid from "../../utils/Grid";
-import NewsMain from "./NewsMain";
+import Header from "./Header";
+import Timeline from "./Timeline";
+import StatTable from "./StatTable";
+import MainContent from "./MainContent";
+import NewsMain from "../news/NewsMain";
 import RTL from "../../utils/RTL";
+import Grid from "../../utils/Grid";
+import Paper from "@material-ui/core/Paper/Paper";
 
 
 const getSampleCommentReply = () => {
@@ -65,6 +56,271 @@ const getSampleComment = () => {
             getSampleCommentReply()
         ]
     }
+};
+
+const getSampleMatch = () => {
+    return (
+        {
+            "type": "فوتبال",
+            "homePic": 'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', "homeName": "بارسلونا",
+            "awayPic": 'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png', 'awayName': 'چلسی',
+            "homeScore": "2", "awayScore": "1",
+            "subtitle" : "نیوکمپ بارسلونا ",
+            "status" : "پایان بازی",
+            "homeEvents": getSampleEvents(),
+            "awayEvents": getSampleEvents(),
+            "statFields": getSampleStatFields(),
+            "homePlayers": getSamplePlayers(),
+            "awayPlayers": getSamplePlayers(),
+            "detail": "حالا خبرنگار نشریه ال چیرینگیتو سرنخ بیشتری در مورد آینده این بازیکن داده و ادعا می کند خامس شخصا به او گفته آماده بازگشت به رئال مادرید است. این نشریه مدعی شد خامس زمان خاصی برای رخ دادن این اتفاق تعیین نکرده اما به نظر می رسد تابستان بعد این انتقال رخ خواهد داد و خود خامس نیز آن را تایید کرده است.\n" +
+                "\n" +
+                " \n" +
+                "\n" +
+                "این موضوع در جریان بازی بین ریورپلاته و بوکا جونیورز در فینال کوپا لیبرتادورس که در روز یکشنبه در برنابئو برگزار شد فاش شده است. خامس، لیونل مسی و تعدادی دیگر از بازیکنان بزرگ تماشاگر این مسابقه حساس بودند و آنجا ستاره کلمبیایی فاش کرده تمایل دارد دوباره برای رئال مادرید بازی کند.حالا خبرنگار نشریه ال چیرینگیتو سرنخ بیشتری در مورد آینده این بازیکن داده و ادعا می کند خامس شخصا به او گفته آماده بازگشت به رئال مادرید است. این نشریه مدعی شد خامس زمان خاصی برای رخ دادن این اتفاق تعیین نکرده اما به نظر می رسد تابستان بعد این انتقال رخ خواهد داد و خود خامس نیز آن را تایید کرده است.\n" +
+                "\n" +
+                " \n" +
+                "\n" +
+                "این موضوع در جریان بازی بین ریورپلاته و بوکا جونیورز در فینال کوپا لیبرتادورس که در روز یکشنبه در برنابئو برگزار شد فاش شده است. خامس، لیونل مسی و تعدادی دیگر از بازیکنان بزرگ تماشاگر این مسابقه حساس بودند و آنجا ستاره کلمبیایی فاش کرده تمایل دارد دوباره برای رئال مادرید بازی کند.حالا خبرنگار نشریه ال چیرینگیتو سرنخ بیشتری در مورد آینده این بازیکن داده و ادعا می کند خامس شخصا به او گفته آماده بازگشت به رئال مادرید است. این نشریه مدعی شد خامس زمان خاصی برای رخ دادن این اتفاق تعیین نکرده اما به نظر می رسد تابستان بعد این انتقال رخ خواهد داد و خود خامس نیز آن را تایید کرده است.\n" +
+                "\n" +
+                " \n" +
+                "\n" +
+                "این موضوع در جریان بازی بین ریورپلاته و بوکا جونیورز در فینال کوپا لیبرتادورس که در روز یکشنبه در برنابئو برگزار شد فاش شده است. خامس، لیونل مسی و تعدادی دیگر از بازیکنان بزرگ تماشاگر این مسابقه حساس بودند و آنجا ستاره کلمبیایی فاش کرده تمایل دارد دوباره برای رئال مادرید بازی کند.حالا خبرنگار نشریه ال چیرینگیتو سرنخ بیشتری در مورد آینده این بازیکن داده و ادعا می کند خامس شخصا به او گفته آماده بازگشت به رئال مادرید است. این نشریه مدعی شد خامس زمان خاصی برای رخ دادن این اتفاق تعیین نکرده اما به نظر می رسد تابستان بعد این انتقال رخ خواهد داد و خود خامس نیز آن را تایید کرده است.\n" +
+                "\n" +
+                " \n" +
+                "\n" +
+                "این موضوع در جریان بازی بین ریورپلاته و بوکا جونیورز در فینال کوپا لیبرتادورس که در روز یکشنبه در برنابئو برگزار شد فاش شده است. خامس، لیونل مسی و تعدادی دیگر از بازیکنان بزرگ تماشاگر این مسابقه حساس بودند و آنجا ستاره کلمبیایی فاش کرده تمایل دارد دوباره برای رئال مادرید بازی کند.حالا خبرنگار نشریه ال چیرینگیتو سرنخ بیشتری در مورد آینده این بازیکن داده و ادعا می کند خامس شخصا به او گفته آماده بازگشت به رئال مادرید است. این نشریه مدعی شد خامس زمان خاصی برای رخ دادن این اتفاق تعیین نکرده اما به نظر می رسد تابستان بعد این انتقال رخ خواهد داد و خود خامس نیز آن را تایید کرده است.\n" +
+                "\n" +
+                " \n" +
+                "\n" +
+                "این موضوع در جریان بازی بین ریورپلاته و بوکا جونیورز در فینال کوپا لیبرتادورس که در روز یکشنبه در برنابئو برگزار شد فاش شده است. خامس، لیونل مسی و تعدادی دیگر از بازیکنان بزرگ تماشاگر این مسابقه حساس بودند و آنجا ستاره کلمبیایی فاش کرده تمایل دارد دوباره برای رئال مادرید بازی کند."
+        }
+    );
+};
+
+const getSampleEvents = () => {
+    return (
+        [
+            {
+                'overtime': false,
+                'eventType': 'card',
+                'time': '85',
+                'playerName': 'کمال کامیابی‌نیا',
+                'iconColor': 'red'
+            },
+            {
+                'overtime': false,
+                'eventType': 'card',
+                'time': '65',
+                'playerName': 'کمال کامیابی‌نیا',
+                'iconColor': 'yellow'
+            },
+            {
+                'overtime': false,
+                'ownGoal': true,
+                'eventType': 'goal',
+                'time': '48',
+                'hasAssist': false,
+                'playerGoalName': 'کمال کامیابیببببببببببببب‌نیا',
+                'playerAssistName': 'کمال کامیابی‌نیا',
+            },
+            {
+                'overtime': false,
+                'eventType': 'substitution',
+                'time': '47',
+                'playerInName': 'کمال کامیابی‌نیا',
+                'playerOutName': 'کمال کامیابی‌نیا',
+            },
+            {
+                'overtime': true,
+                'eventType': 'substitution',
+                'time': '50',
+                'playerInName': 'کمال کامیابی‌نیا',
+                'playerOutName': 'کمال کامیابی‌نیا',
+            },
+            {
+                'overtime': true,
+                'ownGoal': false,
+                'eventType': 'goal',
+                'time': '47',
+                'hasAssist': true,
+                'playerGoalName': 'کمال کامیابی‌نیا',
+                'playerAssistName': 'کمال کامیابی‌نیا',
+            },
+            {
+                'overtime': false,
+                'eventType': 'card',
+                'time': '31',
+                'playerName': 'کمال کامیابی‌نیا',
+                'iconColor': 'yellow'
+            },
+        ]
+    );
+};
+
+const getSamplePlayers = () => {
+    return (
+        [
+            {
+                'playerStats': getSamplePlayerStats(),
+                'playerName': 'کمال کامیابی‌نیا',
+                'subTime': '85',
+                'hasBeenSubed': true,
+                'subIn': true,
+            },
+            {
+                'playerStats': getSamplePlayerStats(),
+                'playerName': 'کمال کامیابی‌نیا',
+                'subTime': '85',
+                'hasBeenSubed': true,
+                'subIn': true,
+            },
+            {
+                'playerStats': getSamplePlayerStats(),
+                'playerName': 'کمال کامیابی‌نیا',
+                'subTime': '85',
+                'hasBeenSubed': true,
+                'subIn': true,
+            },
+            {
+                'playerStats': getSamplePlayerStats(),
+                'playerName': 'کمال کامیابی‌نیا',
+                'subTime': '85',
+                'hasBeenSubed': true,
+                'subIn': true,
+            },
+            {
+                'playerStats': getSamplePlayerStats(),
+                'playerName': 'کمال کامیابی‌نیا',
+                'subTime': '85',
+                'hasBeenSubed': true,
+                'subIn': true,
+            },
+            {
+                'playerStats': getSamplePlayerStats(),
+                'playerName': 'کمال کامیابی‌نیا',
+                'subTime': '85',
+                'hasBeenSubed': true,
+                'subIn': true,
+            },
+            {
+                'playerStats': getSamplePlayerStats(),
+                'playerName': 'لیونل مسی',
+                'subTime': '85',
+                'hasBeenSubed': true,
+                'subIn': false,
+            },
+            {
+                'playerStats': getSamplePlayerStats(),
+                'playerName': 'لیونل مسی',
+                'subTime': '85',
+                'hasBeenSubed': true,
+                'subIn': false,
+            },
+            {
+                'playerStats': getSamplePlayerStats(),
+                'playerName': 'لیونل مسی',
+                'subTime': '85',
+                'hasBeenSubed': true,
+                'subIn': false,
+            },
+            {
+                'playerStats': getSamplePlayerStats(),
+                'playerName': 'لیونل مسی',
+                'subTime': '85',
+                'hasBeenSubed': true,
+                'subIn': false,
+            },
+            {
+                'playerStats': getSamplePlayerStats(),
+                'playerName': 'لیونل مسی',
+                'subTime': '85',
+                'hasBeenSubed': true,
+                'subIn': false,
+            },
+            {
+                'playerStats': getSamplePlayerStats(),
+                'playerName': 'لیونل مسی',
+                'subTime': '85',
+                'hasBeenSubed': true,
+                'subIn': false,
+            },
+            {
+                'playerStats': getSamplePlayerStats(),
+                'playerName': 'لیونل مسی',
+                'subTime': '85',
+                'hasBeenSubed': true,
+                'subIn': false,
+            },
+        ]
+    );
+};
+
+const getSamplePlayerStats = () => {
+    return (
+        [
+            {
+                'name': 'امتیاز',
+                'value': "68",
+            },
+            {
+                'name': 'امتیاز',
+                'value': "68",
+            },
+            {
+                'name': 'امتیاز',
+                'value': "68",
+            },
+            {
+                'name': 'امتیاز',
+                'value': "68",
+            },
+            {
+                'name': 'امتیاز',
+                'value': "68",
+            },
+            {
+                'name': 'امتیاز',
+                'value': "68",
+            },
+        ]
+    );
+};
+
+const getSampleStatFields = () => {
+    return (
+        [
+            {
+                'homeValue': "23",
+                'awayValue': '45',
+                'name': 'درصد مالکیت',
+            },
+            {
+                'homeValue': "23",
+                'awayValue': '45',
+                'name': 'درصد مالکیت',
+            },
+            {
+                'homeValue': "23",
+                'awayValue': '45',
+                'name': 'درصد مالکیت',
+            },
+            {
+                'homeValue': "23",
+                'awayValue': '45',
+                'name': 'درصد مالکیت',
+            },
+            {
+                'homeValue': "23",
+                'awayValue': '45',
+                'name': 'درصد مالکیت',
+            },
+            {
+                'homeValue': "23",
+                'awayValue': '45',
+                'name': 'درصد مالکیت',
+            },
+        ]
+    );
 };
 
 const getSampleNews = () => {
@@ -132,15 +388,26 @@ const getSampleNews = () => {
 const styles = theme => ({
     root: {
         display: 'flex',
-        justifyContent: 'space-around'
+        flexDirection: 'column',
     },
     main: {
         marginRight: theme.spacing.unit * 2,
         marginLeft: '100px',
     },
+    mediaRoot: {
+        display: 'flex',
+        justifyContent: 'space-around'
+    },
+    commentsTitleContainer: {
+        color: 'white',
+        backgroundColor: 'darkBlue',
+        borderTopLeftRadius: theme.spacing.unit,
+        borderTopRightRadius: theme.spacing.unit,
+        padding: theme.spacing.unit,
+    },
 });
 
-class NewsPage extends React.Component {
+class MatchPage extends React.Component {
 
     getNews = () => {
         return [
@@ -177,18 +444,33 @@ class NewsPage extends React.Component {
 
         return (
             <div className={classes.root}>
-                <NewsMain news = {getSampleNews()} userAvatar = {'https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png'}/>
-                <RTL >
-                    <Grid listItems={newsList} listTitle={"اخبار مرتبط"} width={'auto'} columns={2}/>
-                </RTL>
+                <Header match = {getSampleMatch()}/>
+                <Timeline  style = {{alignSelf: 'center'}} sport = {getSampleMatch().type} homeEvents = {getSampleMatch().homeEvents} awayEvents = {getSampleMatch().awayEvents}/>
+                <MainContent match = {getSampleMatch()} />
+                <Paper style={{marginTop: '16px'}}>
+                    <div className={classes.commentsTitleContainer}>
+                        <span className={classes.title}>توضیحات لحظه به لحظه</span>
+                    </div>
+                    <div style={{textAlign: 'justify', padding: '16px'}}>
+                        {getSampleMatch().detail}
+                    </div>
+                </Paper>
+                <Paper style={{marginTop: '16px'}} className={classes.mediaRoot}>
+                    <RTL >
+                        <Grid listItems={newsList} listTitle={"ویدئوهای مربوط به بازی"} width={'auto'} columns={2}/>
+                    </RTL>
+                    <RTL >
+                        <Grid listItems={newsList} listTitle={"اخبار مرتبط"} width={'auto'} columns={2}/>
+                    </RTL>
+                </Paper>
             </div>
 
         );
     }
 }
 
-NewsPage.propTypes = {
+MatchPage.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(NewsPage);
+export default withStyles(styles)(MatchPage);
