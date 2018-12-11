@@ -14,7 +14,7 @@ const styles = ({
         justifyContent: 'space-evenly',
         marginTop: '100px',
         height : '85vh',
-        width : '100vw',
+        // width : '100vw',
     },
     leagueTables: {
         display: 'flex',
@@ -47,20 +47,20 @@ class LeagueMainPage extends React.Component {
         let old = this.state.oldLeaguesInformation;
         console.log(current, old);
         console.log(this.state.currentLeaguesInformation,this.state.oldLeaguesInformation);
-               return (
+        return (
           <div className={classes.leagueMainPageContainer}>
-              <div className={classes.leagueTables}>
-                  <Input
-                      id="input-with-icon-adornment"
-                      startAdornment={
-                          <InputAdornment position="start">
-                              <SearchIcon />
-                          </InputAdornment>
-                      }
-                      placeholder={"نام لیگ:سال"}
-                      onKeyDown={this.handleSearch}
-                  />
-              </div>
+                <div style={{width:'30vw'}}>
+                    <Input
+                          id="input-with-icon-adornment"
+                          startAdornment={
+                              <InputAdornment position="start">
+                                  <SearchIcon />
+                              </InputAdornment>
+                          }
+                          placeholder={"نام لیگ:سال"}
+                          onKeyDown={this.handleLeaguePage}
+                      />
+                </div>
               <div className={classes.leagueTables}>
                   <div>
                       <Grid listItems={current} listTitle={"فصل جاری"} width={700} columns={2}/>
@@ -73,7 +73,7 @@ class LeagueMainPage extends React.Component {
         );
     }
 
-    handleSearch = (event) => {
+    handleLeaguePage = (event) => {
         if (event.key === 'Enter'){
             let input = event.target.value;
             if (input === ""){

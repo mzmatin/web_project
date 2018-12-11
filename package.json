@@ -17,7 +17,9 @@
     "rc-queue-anim": "^1.6.8",
     "rc-tween-one": "^2.2.18",
     "react": "^16.6.3",
+    "react-bracket": "0.0.4",
     "react-dom": "^16.6.3",
+    "react-emotion": "^10.0.0",
     "react-event-timeline": "^1.6.1",
     "react-expand-animated": "^1.0.0",
     "react-native": "^0.57.7",
@@ -25,7 +27,10 @@
     "react-material-timeline": "^3.0.1",
     "react-native-elements": "^0.19.1",
     "react-persian": "^1.1.1",
+    "react-responsive-background": "^1.5.0",
     "react-scripts": "2.1.1",
+    "react-slideshow-image": "^1.0.9",
+    "react-slidez": "0.0.30",
     "react-swipeable-views": "^0.13.0",
     "react-vertical-timeline-component": "^2.3.1",
     "styled-components": "^4.1.2",
@@ -47,6 +52,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "react-jss": "^8.6.1"
+    "react-jss": "^8.6.1",
+    "react-tournament-bracket": "^0.2.4"
   }
 }

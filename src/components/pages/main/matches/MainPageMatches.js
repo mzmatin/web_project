@@ -10,7 +10,7 @@ import MatchesList from "../../../MatchesList";
 const styles = theme => ({
     root: {
         backgroundColor: theme.palette.background.paper,
-        width: 500,
+        width: 'auto',
     },
 });
 
@@ -57,8 +57,8 @@ class MainPageMatches extends React.Component {
                     index={this.state.value}
                     onChangeIndex={this.handleChangeIndex}
                 >
-                    <MatchesList matches={matches_list_fav} height={200}/>
-                    <MatchesList matches={matches_list_all} height={200}/>
+                    <MatchesList matches={matches_list_fav} height={'auto'}/>
+                    <MatchesList matches={matches_list_all} height={'auto'}/>
                 </SwipeableViews>
             </div>
         );

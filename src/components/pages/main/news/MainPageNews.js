@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import SwipeableViews from 'react-swipeable-views';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -11,7 +11,7 @@ import SwitchLabels from "./SwitchLabels";
 const styles = theme => ({
     root: {
         backgroundColor: theme.palette.background.paper,
-        width: 500,
+        width: 'auto',
     },
 });
 
@@ -40,7 +40,7 @@ class MainPageNews extends React.Component {
 
         return (
             <div className={classes.root}>
-                <AppBar position="static" color="default" style={{width:'30vw'}}>
+                <AppBar position="static" color="default" >
                     <Tabs
                         value={this.state.value}
                         onChange={this.handleChange}
@@ -61,7 +61,7 @@ class MainPageNews extends React.Component {
                     axis={theme.direction === 'ltr' ? 'x-reverse' : 'x'}
                     index={this.state.value}
                     onChangeIndex={this.handleChangeIndex}
-                    style={{width:'30vw'}}
+                    style={{width:'40vw'}}
                 >
                     <MainPageNewsContainer title="soccer" fav={this.state.favorite}/>
                     <MainPageNewsContainer title="basketball" fav={this.state.favorite}/>
