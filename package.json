@@ -17,6 +17,7 @@
     "rc-queue-anim": "^1.6.8",
     "rc-tween-one": "^2.2.18",
     "react": "^16.6.3",
+    "react-bracket": "0.0.4",
     "react-dom": "^16.6.3",
     "react-emotion": "^10.0.0",
     "react-event-timeline": "^1.6.1",
@@ -47,6 +48,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "react-jss": "^8.6.1"
+    "react-jss": "^8.6.1",
+    "react-tournament-bracket": "^0.2.4"
   }
 }

@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/es/Typography/Typography";
 import Paper from "@material-ui/core/Paper/Paper";
 import Ranking from "./Ranking";
 import MatchesList from "../../MatchesList";
+import Knockout from "./Knockout";
 
 const styles = theme => ({
     leagueMainPageContainer : {
@@ -24,10 +25,12 @@ const styles = theme => ({
     comeCenter : {
         alignSelf: 'center',
         flexGrow: '1',
+        marginTop: '100px'
     },
 });
 
 class LeaguePage extends React.Component{
+
     render() {
         const {classes} = this.props;
         return (
@@ -48,7 +51,7 @@ class LeaguePage extends React.Component{
                   </div>
               </div>
               <div className={classes.comeCenter}>
-                  sadlgjsdlkgjsldgjlsdkfgjlsdfjglsdkgj
+                  <Knockout teams={this.getTeams(this.props.name, this.props.season)} name={"جدول حذفی"}/>
               </div>
           </div>
         );
@@ -124,6 +127,35 @@ class LeaguePage extends React.Component{
         ]
     }
 
+
+    getTeams(name, season) {
+        // TODO get information of knockout games of desired league from server
+        return[
+            [
+                {'name1':'barcelona', 'name2':'chelsea', 'score1':4, 'score2':2, 'avatar1':'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', 'avatar2':'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png'},
+                {'name1':'barcelona', 'name2':'chelsea', 'score1':4, 'score2':2, 'avatar1':'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', 'avatar2':'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png'},
+                {'name1':'barcelona', 'name2':'chelsea', 'score1':4, 'score2':2, 'avatar1':'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', 'avatar2':'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png'},
+                {'name1':'barcelona', 'name2':'chelsea', 'score1':4, 'score2':2, 'avatar1':'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', 'avatar2':'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png'},
+                {'name1':'barcelona', 'name2':'chelsea', 'score1':4, 'score2':2, 'avatar1':'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', 'avatar2':'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png'},
+                {'name1':'barcelona', 'name2':'chelsea', 'score1':4, 'score2':2, 'avatar1':'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', 'avatar2':'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png'},
+                {'name1':'barcelona', 'name2':'chelsea', 'score1':4, 'score2':2, 'avatar1':'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', 'avatar2':'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png'},
+                {'name1':'barcelona', 'name2':'chelsea', 'score1':4, 'score2':2, 'avatar1':'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', 'avatar2':'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png'},
+            ],
+            [
+                {'name1':'barcelona', 'name2':'chelsea', 'score1':4, 'score2':2, 'avatar1':'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', 'avatar2':'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png'},
+                {'name1':'barcelona', 'name2':'chelsea', 'score1':4, 'score2':2, 'avatar1':'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', 'avatar2':'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png'},
+                {'name1':'barcelona', 'name2':'chelsea', 'score1':4, 'score2':2, 'avatar1':'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', 'avatar2':'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png'},
+                {'name1':'barcelona', 'name2':'chelsea', 'score1':4, 'score2':2, 'avatar1':'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', 'avatar2':'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png'},
+            ],
+            [
+                {'name1':'barcelona', 'name2':'chelsea', 'score1':4, 'score2':2, 'avatar1':'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', 'avatar2':'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png'},
+                {'name1':'barcelona', 'name2':'chelsea', 'score1':4, 'score2':2, 'avatar1':'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', 'avatar2':'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png'},
+            ],
+            [
+                {'name1':'barcelona', 'name2':'chelsea', 'score1':4, 'score2':2, 'avatar1':'http://pngimg.com/uploads/fcb_logo/fcb_logo_PNG4.png', 'avatar2':'http://pluspng.com/img-png/chelsea-png-chelsea-fc-1024.png'},
+            ]
+        ];
+    }
 }
 
 export default withStyles(styles, { withTheme: true })(LeaguePage);

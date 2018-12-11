@@ -105,7 +105,7 @@ class TeamPage extends React.Component{
 
     getTeamCode() {
         // TODO get the desired teamCode {it will handle later by routing in site}
-        return 1;
+        return 0;
     }
 
     getTeamMatchesList(teamCode) {
