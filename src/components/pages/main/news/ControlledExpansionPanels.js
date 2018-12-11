@@ -4,7 +4,7 @@ import {withStyles} from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import Typography from '@material-ui/core/Typography';
+import div from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Paper from "@material-ui/core/Paper/Paper";
 
@@ -49,22 +49,22 @@ class ControlledExpansionPanels extends React.Component {
             news_list.push(
                 <ExpansionPanel expanded={expanded === 'panel' + i.toString()} onChange={this.handleChange('panel' + i.toString())} key={i} dir={"rtl"}>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                        <Typography className={classes.heading}><a className={classes.newsLink} target="_blank" rel="noopener noreferrer" href={this.props.news[i]["title"]}>{this.props.news[i]["title"]}</a></Typography>
-                        <Typography className={classes.secondaryHeading}>{this.props.news[i]["time"]}</Typography>
+                        <div className={classes.heading}><a className={classes.newsLink} target="_blank" rel="noopener noreferrer" href={this.props.news[i]["title"]}>{this.props.news[i]["title"]}</a></div>
+                        <div className={classes.secondaryHeading}>{this.props.news[i]["time"]}</div>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
-                        <Typography>
+                        <div>
                             {this.props.news[i]["summary"]}
-                        </Typography>
+                        </div>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
             );
         }
 
         return (
-            <Paper className={classes.root} style={{maxHeight: 200, overflow: 'auto'}} >
+            <div className={classes.root} style={{overflow: 'auto', height:'auto'}} >
                 {news_list}
-            </Paper>
+            </div>
         );
     }
 }

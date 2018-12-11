@@ -21,7 +21,7 @@ class MatchesList extends React.Component {
             );
         }
         return (
-            <Paper style={{maxHeight: this.props.height, overflow: 'auto'}}>
+            <Paper style={{height: this.props.height, overflow: 'auto'}}>
                 {matches_list}
             </Paper>
 

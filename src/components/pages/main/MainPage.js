@@ -9,7 +9,7 @@ const styles = theme => ({
         display : 'flex',
         flexDirection : 'row',
         justifyContent : 'space-evenly',
-        alignItems : 'center',
+        alignItems : 'stretch',
         alignContent : 'center',
         height : '85vh',
     },
