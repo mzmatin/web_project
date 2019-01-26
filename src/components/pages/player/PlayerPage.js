@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from '@material-ui/core/styles';
+import withStyles from "@material-ui/core/styles/withStyles";
 import PlayerAvatar from "./PlayerAvatar";
 import PlayerTable from "./PlayerInfTable";
 import PlayerStatTable from "./PlayerStatTable";
